@@ -1,15 +1,13 @@
-
-DISTRO_FEATURES:append = "  wifi"
+DISTRO_FEATURES:append = " sensors wifi"
 MACHINE_FEATURES:append = " wifi bluetooth"
 IMAGE_FEATURES:append = " ssh-server-openssh"
+IMAGE_INSTALL:append = " docker"
 IMAGE_INSTALL:append = " libgpiod libgpiod-tools libgpiod-dev"
 
 INHERIT += "image-buildinfo"
 IMAGE_BUILDINFO_VARS = "DISTRO DISTRO_VERSION MACHINE DEVICE_MODEL DEVICE_TYPE IMX_GPU_VERSION RELEASE_VERSION"
 
-#BUILDTAG ??= "SRG-IMX8-v1"
-RELEASE_VERSION ?= "SRG-IMX8-${@'PREBUILD-%s' % (lambda dt: (dt.date.today().__str__()))(__import__('datetime')) if (d.getVar('BUILDTAG', True) is None) else '%s' % d.getVar('BUILDTAG')}"
+#BUILDTAG ??= "SRG-IMX8-1v0"
+RELEASE_VERSION ?= "LEC-iMX8MP-${@'PREBUILD-%s' % (lambda dt: (dt.date.today().__str__()))(__import__('datetime')) if (d.getVar('BUILDTAG', True) is None) else '%s' % d.getVar('BUILDTAG')}"
 
 KERNEL_MODULE_AUTOLOAD += "mlan moal"
-
-ACCEPT_FSL_EULA = "1"

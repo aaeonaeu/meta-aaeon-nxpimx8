@@ -1,0 +1,3 @@
+
+# AAEON Yocto Project Release layers
+BBLAYERS += "${BSPDIR}/sources/meta-aaeon-nxpimx8"
