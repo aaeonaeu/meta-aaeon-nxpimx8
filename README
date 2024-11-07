@@ -2,20 +2,19 @@ This README file contains information on the contents of the meta-aaeon-imx8p la
 
 Please see the corresponding sections below for details.
 
-
 =================================================
-Build SRG-IMX8P BSP
-(1)	Download Yocto BSP with kernel 5.15.71
+Build SRG-IMX8PL BSP
+(1)   Download Yocto BSP with kernel 5.15.71
    $ mkdir imx-yocto-bsp 
    $ cd imx-yocto-bsp 
-   $ repo init -u https://github.com/aaeonaeu/aaeon-nxpimx8-manifest -b main  -m aaeon-kirkstone-v01.xml
+   $ repo init -u https://github.com/aaeonaeu/aaeon-nxpimx8-manifest -b srg-imx8pl -m aaeon-kirkstone-v02.xml
    $ repo sync
-(2)	Environment setup
-   For 4G DDR
-   $ DISTRO=fsl-imx-wayland MACHINE=srg-imx8p-4g source aaeon-imx-setup-release.sh -b imx8p_build
-   For 2G DDR
-   $ DISTRO=fsl-imx-wayland MACHINE=srg-imx8p-2g source aaeon-imx-setup-release.sh -b imx8p_build
-(3)	Build NXP IMX BSP
+(2)   Environment setup
+ For SRG-IMX8PL 4GB
+    $ DISTRO=fsl-imx-wayland MACHINE=srg-imx8pl-4g source aaeon-imx-setup-release.sh -b imx8p_build
+ For SRG-IMX8PL 2GB
+     $ DISTRO=fsl-imx-wayland MACHINE=srg-imx8pl-2g source aaeon-imx-setup-release.sh -b imx8p_build
+(3)   Build NXP IMX BSP
    $ bitbake imx-image-full
 =================================================
 Note:
