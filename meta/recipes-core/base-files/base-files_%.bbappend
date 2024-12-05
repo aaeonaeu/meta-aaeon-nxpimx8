@@ -1,17 +1,16 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/base-files:"
 
-SRC_URI += " \
-            file://issue \
-	        file://issue.net \
-"
-
-PACKAGE_ARCH = "${MACHINE_ARCH}"
-
-do_install:append () {
-    install -d ${D}/etc
-	install -m 0755 ${WORKDIR}/issue ${D}/etc/issue
-	install -m 0755 ${WORKDIR}/issue.net ${D}/etc/issue.net
-}
-
-FILES:${PN} += " /etc/issue"
-FILES:${PN} += " /etc/issue.net"
+SRC_URI = "file://rotation \
+           file://nsswitch.conf \
+           file://motd \
+           file://hosts \
+           file://host.conf \
+           file://profile \
+           file://shells \
+           file://fstab \
+           file://issue.net \
+           file://issue \
+           file://share/dot.bashrc \
+           file://share/dot.profile \
+           file://licenses/GPL-2 \
+           "
